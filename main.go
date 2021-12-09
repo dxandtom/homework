@@ -1,5 +1,12 @@
 package main
 
+import (
+	"fmt"
+	"math/rand"
+	"sort"
+	"time"
+)
+
 //第一节课
 //lv1:实现一个函数
 //● 输入一个字符串，输出这个字符串的倒叙
@@ -52,14 +59,28 @@ package main
 //● 声明一个切片s，调用go语言提供的随机数函数，生成100个随机数并append进s，
 //● 调用go语言提供的排序函数，对切片s进行从大到小的排序
 //● 输出有序之后的s切片
+func rank(num int) []int {
+	//冒泡排序
+	var a []int
+	for i := 0; i < len(a); i++ {
+		for j := 0; j < len(a)-1-i; j++ {
+			if a[j] > a[j+1] {
+				b := a[j]
+				a[j] = a[j+1]
+				a[j+1] = b
+			}
+		}
+	}
+	return a
+}
 
-//func main() {
-//	var s []int
-//	for i := 1; i <= 100; i++ {
-//		rand.Seed(time.Now().UnixNano())
-//		r1 := rand.Intn(100)
-//		s = append(s, r1)
-//	}
-//	sort.Ints(s)
-//	fmt.Println(s)
-//}
+func main() {
+	var s []int
+	for i := 1; i <= 100; i++ {
+		rand.Seed(time.Now().UnixNano())
+		r1 := rand.Intn(100)
+		s = append(s, r1)
+	}
+	sort.Ints(s)
+	fmt.Println(s)
+}
